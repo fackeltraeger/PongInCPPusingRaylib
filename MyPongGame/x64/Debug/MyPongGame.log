@@ -1,2 +1,5 @@
 ﻿  MyPongGame.cpp
+D:\Refactor_Test\New folder\MyPongGame\MyPongGame.cpp(24,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Refactor_Test\New folder\MyPongGame\MyPongGame.cpp(24,23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Refactor_Test\New folder\MyPongGame\MyPongGame.cpp(24,20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   MyPongGame.vcxproj -> D:\Refactor_Test\New folder\MyPongGame\x64\Debug\MyPongGame.exe
