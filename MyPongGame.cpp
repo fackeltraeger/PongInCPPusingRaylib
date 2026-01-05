@@ -29,7 +29,40 @@ public:
     {
         x += xSpeed;
         y += ySpeed;
+
+        //making sure it float inside the window
+        if (((y + radius) >= GetScreenHeight()) || ((y - radius) <= 0))
+        {
+            ySpeed *= -1;
+        }
+        if (((x + radius) >= GetScreenWidth()) || ((x - radius) <= 0))
+        {
+            xSpeed *= -1;
+        }
     }
+};
+
+
+class plateMovementer
+{
+private:
+    float x, y, width, height;
+    int radius;
+public:
+    plateMovementer(float x, float y, float width, float height, int radius)
+    {
+        this->radius = radius;
+        this->x = x;
+        this->y = y;
+        this->width = width;
+        this->height = height;
+    }
+
+    void InitMover()
+    {
+        DrawRectangle(x, y, width, height, WHITE);
+    }
+
 };
 
 
@@ -47,6 +80,8 @@ int main()
     UnloadImage(icon);        
 
     ballMovement ball(screenWidth / 2, screenHeight / 2, 20, 4, 4);
+    plateMovementer mover(screenWidth - 20 - 10, screenHeight / 2 - 60 / 2, 20, 60, 60);
+
     SetTargetFPS(60); // 60 frames/second, if not mentioned it runs as fast as system config.
 
     while (false == WindowShouldClose()) // this loop will run until the esc-button/close-window is clicked.
@@ -60,7 +95,7 @@ int main()
         DrawLine(screenWidth / 2, 0, screenWidth / 2, screenHeight, YELLOW); // line in the middle
         ball.InitBall();
         DrawRectangle(10, screenHeight / 2 - 30, 20, 60, WHITE);
-        DrawRectangle(screenWidth - 30, screenHeight/2-30 , 20, 60, WHITE);
+        mover.InitMover();
         EndDrawing();
     }
 
